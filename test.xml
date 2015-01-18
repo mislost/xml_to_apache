@@ -1,0 +1,9 @@
+<?xml version="1.0" ?><apache>		
+	<person name="# guest289">	
+		<ip>Allow from 116.93.116.18 122.49.213.178 125.133.76.225 122.49.213.50 122.49.213.51</ip>
+	</person>
+	
+	<person name="# guest123">
+		<ip>Allow from   103.229.146.20  103.229.145.84</ip>
+	</person>
+</apache>
