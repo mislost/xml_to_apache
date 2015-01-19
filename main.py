@@ -70,31 +70,35 @@ def delete_ip(ip):
 def add_ip(ip,name=None):
 	userlist = get_user_list()
 	iplist = get_ip_list()
-	if ip not in iplist:
-		if name:
-			if name in userlist:
-				for node in nodes:
-					if node.nodeType == node.ELEMENT_NODE:	
-						if node.getAttribute('name') == name:
-							newtag = doc.createElement('ip')
-							newtext = doc.createTextNode(ip)
-							head = doc.createTextNode('\t')
-							end = doc.createTextNode('\n\t')
-							node.appendChild(head)
-							node.appendChild(newtag)
-							node.childNodes[-1].appendChild(newtext)
-							node.appendChild(end)	
-		
-			else:
-				print 'Errors!Don\'t hava this user!'		
+    if ip in iplist : 
+        print '%s is already exist!' % ip
+        return False
+
+	if name:
+		if name in userlist:
+			for node in nodes:
+				if node.nodeType == node.ELEMENT_NODE:	
+					if node.getAttribute('name') == name:
+						newtag = doc.createElement('ip')
+						newtext = doc.createTextNode(ip)
+						head = doc.createTextNode('\t')
+						end = doc.createTextNode('\n\t')
+						node.appendChild(head)
+						node.appendChild(newtag)
+						node.childNodes[-1].appendChild(newtext)
+						node.appendChild(end)	
+	
 		else:
-			print 'Errors!Must input user!'	
+			print 'Errors!Don\'t hava this user!'
+            return False
 	else:
-		print '%s is already exist!' % ip
+		print 'Errors!Must input user!'	
+        return False
+
 	f = open('test.xml', 'w')
 	doc.writexml(f)	
 	f.close()						
-				
+	return True	
 	
 
 
