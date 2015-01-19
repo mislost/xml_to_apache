@@ -70,9 +70,9 @@ def delete_ip(ip):
 def add_ip(ip,name=None):
 	userlist = get_user_list()
 	iplist = get_ip_list()
-    if ip in iplist : 
-        print '%s is already exist!' % ip
-        return False
+    	if ip in iplist : 
+        	print '%s is already exist!' % ip
+       		return False
 
 	if name:
 		if name in userlist:
@@ -90,10 +90,10 @@ def add_ip(ip,name=None):
 	
 		else:
 			print 'Errors!Don\'t hava this user!'
-            return False
+        		return False
 	else:
 		print 'Errors!Must input user!'	
-        return False
+        	return False
 
 	f = open('test.xml', 'w')
 	doc.writexml(f)	
@@ -138,6 +138,7 @@ def add_user(adduser):
 	newattribute = doc.createAttribute('name')
 	root.appendChild(head_person)
 	root.appendChild(newuser)
+	root.childNodes[-1].appendChild(end_person)
 	root.childNodes[-1].setAttribute('name', adduser)
 	root.appendChild(end_person)
 	f = open('test.xml', 'w')
@@ -154,7 +155,7 @@ if __name__ == '__main__':
   	#create_conf()
 	
 	#delete_ip('192.168.1.1')
-	#add_ip('192.168.1.333')
+	add_ip('192.168.1.5','mislost')
 	#get_ip_list()
 	#delete_ip('192.168.1.1')
 	#delblankline('test.xml','test.tmp')
