@@ -7,7 +7,5 @@
 	<person name="guest123">
 		<ip>103.229.146.20</ip>
 		<ip>103.229.145.84</ip>
-		<ip>192.168.1.1</ip>
-		<ip>192.168.1.2</ip>
 	</person>
 </apache>
